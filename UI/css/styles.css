@@ -1,0 +1,364 @@
+a {
+  text-decoration: none;
+}
+.txt-rt {
+  text-align: right;
+}
+.txt-lt {
+  text-align: left;
+}
+.txt-center {
+  text-align: center;
+}
+.float-rt {
+  float: right;
+}
+.float-lt {
+  float: left;
+}
+.clear {
+  clear: both;
+}
+.pos-relative {
+  position: relative;
+}
+.pos-absolute {
+  position: absolute;
+}
+.vertical-base {
+  vertical-align: baseline;
+}
+.vertical-top {
+  vertical-align: top;
+}
+.underline {
+  padding-bottom: 5px;
+  border-bottom: 1px solid #eee;
+  margin: 0 0 20px 0;
+}
+nav.vertical ul li {
+  display: block;
+}
+nav.horizontal ul li {
+  display: inline-block;
+}
+img {
+  max-width: 100%;
+}
+
+body {
+  /*font-size:80%;*/
+  background: url(../images/pol.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  font-family: "Source Sans Pro", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.background {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.box {
+  margin-top: -10vh;
+  width: 40vw;
+}
+
+.navbar span.pol {
+  color: #4dab7f;
+  margin: 20px;
+}
+
+.navbar {
+  background-color: #35475e;
+  overflow: hidden;
+  height: 63px;
+  z-index: 3;
+  border-bottom: #4dab7f 3px solid;
+}
+
+.navbar a {
+  float: right;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.dash a {
+  background-color: #4dab7f;
+}
+
+.navbar ul {
+  margin: 8px 0 0 0;
+  list-style: none;
+  font-weight: 500;
+}
+.navbar a:hover {
+  background-color: #ddd;
+  color: #000;
+  border-radius: 10px;
+}
+
+.header {
+  position: absolute;
+  width: 100%;
+  z-index: 3;
+  height: 44px;
+  background-color: #fff;
+  border-bottom: 3px solid #2d3d51;
+}
+
+@media (min-width: 600px) and (max-width: 1024px) {
+  .box {
+    margin-top: -10vh;
+    width: 60vw;
+  }
+}
+
+@media (max-width: 600px) {
+  .box {
+    margin-top: -20vh;
+    width: 80vw;
+  }
+}
+
+@media (max-width: 400px) {
+}
+
+.login-head {
+  padding: 32px 0;
+  background: #3a4d6f;
+  position: relative;
+  border-radius: 10px;
+}
+.login-head h1 {
+  color: #fff;
+  font-size: 2.5em;
+  text-align: left;
+  margin: 0 23px;
+}
+
+.signup h1 {
+  color: #fff;
+  font-size: 1em;
+  text-align: right;
+  margin: 10px 23px 0px 20px;
+}
+
+.signout h1 {
+  color: #fff;
+  font-size: 1em;
+  text-align: right;
+  margin: 10px 23px 0px 20px;
+}
+
+form {
+  padding: 2em 2em;
+  background: #f2f2f2;
+  border-radius: 10px;
+}
+form li {
+  border: 2px ridge rgba(187, 185, 189, 0.11);
+  border-radius: 0.3em;
+  -webkit-border-radius: 0.3em;
+  -moz-border-radius: 0.3em;
+  -o-border-radius: 0.3em;
+  list-style: none;
+  margin-bottom: 12px;
+  background: #f0eef0;
+}
+.icon {
+  background: url(../images/icons.png) no-repeat 0px 0px;
+  height: 30px;
+  width: 30px;
+  display: block;
+  float: right;
+  margin: 12px 9px 9px 0px;
+}
+.user {
+  background: url(../images/icons.png) no-repeat 7px 1px;
+}
+.lock {
+  background: url(../images/icons.png) no-repeat -22px 1px;
+}
+
+input[type="text"],
+input[type="password"] {
+  font-family: "Droid Sans", sans-serif;
+  width: 70%;
+  padding: 0.5em 2em 0.5em 1em;
+  color: #b8b8b8;
+  font-size: 15px;
+  outline: none;
+  background: none;
+  border: none;
+}
+input[type="text"]:hover,
+input[type="password"]:hover {
+  color: #9e61a3;
+}
+.submit h4 a {
+  /*float:left;*/
+  font-size: 16px;
+  color: #999;
+  font-weight: 400;
+  font-family: "Droid Sans", sans-serif;
+  margin-top: 15px;
+  margin-left: 21px;
+}
+.submit h4 a:hover {
+  color: #8d4294;
+}
+/*************************/
+.submit {
+  padding-top: 2em;
+}
+input[type="submit"] {
+  /*float: left;*/
+  color: #fff;
+  cursor: pointer;
+  font-weight: 900;
+  outline: none;
+  font-family: "Raleway", sans-serif;
+  padding: 12px 0px;
+  width: 35%;
+  font-size: 18px;
+  background: #3a4d6f;
+  border: 2px solid #3a4d6f;
+  border-radius: 0.5em;
+  -webkit-border-radius: 0.5em;
+  -moz-border-radius: 0.5em;
+  -o-border-radius: 0.5em;
+}
+input[type="submit"]:hover {
+  background: #fff;
+  color: #6c496f;
+  border: 2px solid #6c496f;
+}
+
+/*This is for the uploading files on the signup*/
+
+@media (max-width: 1440px) {
+  .message.warning {
+    margin: 11% auto 0;
+    width: 30%;
+  }
+  .footer {
+    left: 44%;
+  }
+}
+@media (max-width: 1366px) {
+  .message.warning {
+    margin: 7% auto 0;
+    width: 35%;
+  }
+  .footer {
+    left: 43%;
+    bottom: 9%;
+  }
+}
+@media (max-width: 1280px) {
+  .message.warning {
+    margin: 7% auto 0;
+    width: 33%;
+  }
+  .footer {
+    left: 43%;
+  }
+}
+@media (max-width: 1024px) {
+  .message.warning {
+    margin: 12% auto 0;
+    width: 47%;
+  }
+  .footer {
+    left: 41%;
+  }
+}
+@media (max-width: 768px) {
+  .message.warning {
+    margin: 50% auto 0;
+    width: 65%;
+  }
+  .footer {
+    left: 38%;
+    bottom: 87px;
+  }
+}
+@media (max-width: 640px) {
+  .message.warning {
+    margin: 13% auto 0;
+    width: 67%;
+  }
+  .footer {
+    left: 35%;
+    bottom: 87px;
+  }
+}
+@media (max-width: 480px) {
+  .message.warning {
+    margin: 15% auto 0;
+    width: 90%;
+  }
+  .footer {
+    left: 33%;
+    bottom: 136px;
+  }
+}
+@media (max-width: 720px) {
+  .message.warning {
+    margin: 8% auto 0;
+    width: 90%;
+  }
+  .login-head {
+    padding: 1.45em 0;
+  }
+  .login-head h1 {
+    font-size: 1.15em;
+  }
+  .icon {
+    margin: -33px 9px 9px 0px;
+  }
+  input[type="text"],
+  input[type="password"] {
+    font-size: 16px;
+  }
+  .alert-close {
+    right: 12px;
+    top: 22px;
+  }
+  form {
+    padding: 1.5em 1.5em;
+  }
+  .submit {
+    padding-top: 0.4em;
+  }
+  input[type="submit"] {
+    float: none;
+    padding: 11px 0px;
+    width: 52%;
+    font-size: 15px;
+  }
+  .submit h4 {
+    margin-top: 15px;
+    margin-bottom: 20px;
+  }
+  .submit h4 a {
+    float: none;
+    font-size: 15px;
+  }
+  .footer {
+    left: 22%;
+    bottom: 59px;
+  }
+}
