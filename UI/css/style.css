@@ -1,7 +1,7 @@
 body {
   padding: 0;
   font-family: "Source Sans Pro", sans-serif;
-  background-color: #d5dae5;
+  background-color: #cd7f32;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -18,22 +18,14 @@ ul {
   padding: 0;
 }
 
-.dark {
-  padding: 15px;
-  background: #35424a;
-  color: #ffffff;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
 /* Header **/
 header {
-  background: #35475e;
+  background: #7d0000;
   color: #ffffff;
   padding-top: 30px;
   min-height: 70px;
-  border-bottom: #4dab7f 3px solid;
-  border-radius: 10px;
+  border-bottom: #ff8c00 3px solid;
+  border-radius: 5px;
 }
 
 header a {
@@ -64,7 +56,7 @@ header nav {
 
 header .highlight,
 header .current a {
-  color: #4dab7f;
+  color: #ff8c00;
   font-weight: bold;
 }
 
@@ -76,7 +68,7 @@ header a:hover {
 /* Showcase */
 #showcase {
   min-height: 400px;
-  background: url("../img/vote2.jpg") no-repeat 0;
+  background: url("../img/food.jpg") no-repeat 0;
   text-align: center;
   color: #ffffff;
   background-size: cover;
@@ -97,8 +89,8 @@ header a:hover {
 #newsletter {
   padding: 5px;
   color: #ffffff;
-  background: #35475e;
-  border-radius: 10px;
+  background: #7d0000;
+  border-radius: 5px;
 }
 
 #newsletter h1 {
@@ -107,18 +99,26 @@ header a:hover {
 
 /* Boxes */
 #boxes {
-  margin-top: 20px;
+  margin-top: 90px;
 }
 
 #boxes .box {
+  margin: 5px;
+  border: 1px solid #cd7f32;
   float: left;
-  text-align: center;
-  width: 30%;
-  padding: 10px;
+  width: 390px;
+  flex-grow: inherit;
 }
 
 #boxes .box img {
-  width: 90px;
+  width: 100%;
+  height: auto;
+}
+
+.container {
+  max-width: 100%;
+  margin: auto;
+  overflow: auto;
 }
 
 /* Sidebar */
@@ -153,7 +153,7 @@ footer {
   padding: 5px;
   margin-top: 5px;
   color: #ffffff;
-  background-color: #4dab7f;
+  background-color: #7d0000;
   text-align: center;
   border-radius: 5px;
 }
