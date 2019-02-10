@@ -62,7 +62,7 @@ body {
   color: #233245;
 }
 .side-nav .logo {
-  background-color: #35475e;
+  background-color: #7d0000;
   color: #fff;
 }
 .header .logo {
@@ -133,11 +133,11 @@ span:after {
   position: absolute;
   top: 0;
   height: 812px;
-  background-color: #35475e;
+  background-color: #7d0000;
   display: inline-block;
   opacity: 0.9;
   transition: all 0.3s ease-in-out;
-  border-right: 4px solid #4dab7f;
+  border-right: 4px solid 	#ff8c00;
 }
 .side-nav.visible {
   display: block;
@@ -148,7 +148,7 @@ span:after {
 }
 .side-nav li {
   padding: 16px 16px;
-  border-bottom: 1px solid #3c506a;
+  border-bottom: 1px solid ;
   position: relative;
 }
 
@@ -188,7 +188,7 @@ span:after {
 /* set element styles to fit tablet and higher(desktop) */
 @media screen and (min-width: 600px) {
   .header {
-    background-color: #35475e;
+    background-color: #7d0000;
     z-index: 1;
   }
   .header .logo {
@@ -264,13 +264,19 @@ button.vote {
   width: 70px;
   font: outline;
   cursor: -webkit-grab;
-  border: 2px solid #4dab7f;
+  border: 2px solid #ff8c00;
   font-size: 20px;
   font-family: Sa;
+  border-radius: 5px;
+  display: block;
+}
+.vote{
+ background-color: transparent;
 }
 
 button.vote:hover {
-  background-color: #4dab7f;
+  background-color: #cd7f32;
+  box-shadow: 0px 0px 35px #ff8c00;
 }
 
 /* main box container */
@@ -560,6 +566,7 @@ button.vote:hover {
   margin: 15px;
   border-radius: 6px;
   background-image: url(./img/bugger.jpg);
+  background-position: center;
   background-size: cover;
 }
 .pat5 .tit {

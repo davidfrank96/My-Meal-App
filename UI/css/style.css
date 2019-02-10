@@ -113,6 +113,7 @@ header a:hover {
 #boxes .box img {
   width: 100%;
   height: auto;
+  display: flex;
 }
 
 .container {
