@@ -7,20 +7,20 @@ body {
   font-family: "Source Sans Pro", sans-serif;
 
   -webkit-font-smoothing: antialiased;
-  background-color: #38384d;
+  background-color: #cd7f32;
 }
 
 .navbar span.pol {
-  color: #4dab7f;
+  color: #ff8c00;
   margin: 20px;
 }
 
 .navbar {
-  background-color: #35475e;
+  background-color: #7d0000;
   overflow: hidden;
   height: 63px;
   z-index: 3;
-  border-bottom: #4dab7f 3px solid;
+  border-bottom: #ff8c00 3px solid;
 }
 
 .navbar a {
@@ -33,17 +33,13 @@ body {
   font-size: 17px;
 }
 
-.dash a {
-  background-color: #4dab7f;
-}
-
 .navbar ul {
   margin: 8px 0 0 0;
   list-style: none;
   font-weight: 500;
 }
 .navbar a:hover {
-  background-color: #ddd;
+  background-color: #ffa500;
   color: #000;
   border-radius: 10px;
 }
@@ -53,7 +49,7 @@ body {
   width: 100%;
   z-index: 3;
   height: 44px;
-  background-color: #fff;
+  background-color: #7d0000;
   border-bottom: 3px solid #2d3d51;
 }
 /* logo in header(mobile version) and side-nav (tablet & desktop) */
@@ -171,19 +167,6 @@ span:after {
   font-size: 14px;
   font-weight: 600;
 }
-
-/* This is the fa-bars in the sidebar 
-.fa-bars{
-	position: absolute;
-	padding:15px 20px 15px 15px;
-	margin-top: 300px;
-	color: white;
-	cursor: pointer;
-	background-color: #648b79;
-	z-index: 1000000;
-	font-size: 2em;
-}
-*/
 
 /* main content styles */
 .main-content {
@@ -500,7 +483,7 @@ button.vote:hover {
   margin: 15px;
   border-radius: 6px;
   background-color: blanchedalmond;
-  background-image: url(./img/party.jpg);
+  background-image: url(./img/chops.png);
   background-size: cover;
 }
 .pat1 .tit {
@@ -519,7 +502,7 @@ button.vote:hover {
   height: 300px;
   margin: 15px;
   border-radius: 6px;
-  background-image: url(./img/apc.png);
+  background-image: url(./img/pizza.cms);
   background-size: cover;
 }
 .pat2 .tit {
@@ -538,7 +521,7 @@ button.vote:hover {
   height: 300px;
   margin: 15px;
   border-radius: 6px;
-  background-image: url(./img/ypp.png);
+  background-image: url(./img/coprate.jpg);
   background-size: cover;
 }
 .pat3 .tit {
@@ -557,7 +540,7 @@ button.vote:hover {
   height: 300px;
   margin: 15px;
   border-radius: 6px;
-  background-image: url(./img/LPN.png);
+  background-image: url(./img/recpie.jpg);
   background-size: cover;
 }
 .pat4 .tit {
@@ -576,7 +559,7 @@ button.vote:hover {
   height: 300px;
   margin: 15px;
   border-radius: 6px;
-  background-image: url(./img/afc.jpg);
+  background-image: url(./img/bugger.jpg);
   background-size: cover;
 }
 .pat5 .tit {
@@ -595,7 +578,7 @@ button.vote:hover {
   height: 300px;
   margin: 15px;
   border-radius: 6px;
-  background-image: url(./img/lb.jpg);
+  background-image: url(./img/spag.jpeg);
   background-size: cover;
 }
 .pat6 .tit {
@@ -614,7 +597,7 @@ button.vote:hover {
   height: 300px;
   margin: 15px;
   border-radius: 6px;
-  background-image: url(./img/APGA-Logo.jpg);
+  background-image: url(./img/plan.jpg);
   background-size: cover;
 }
 .pat7 .tit {
@@ -633,7 +616,7 @@ button.vote:hover {
   height: 300px;
   margin: 15px;
   border-radius: 6px;
-  background-image: url(./img/Progressive-Peoples-Alliance-PPA.png);
+  background-image: url(./img/cake.jpg);
   background-size: cover;
 }
 .pat8 .tit {
@@ -666,7 +649,7 @@ footer {
   padding: 5px;
   margin-top: 5px;
   color: #ffffff;
-  background-color: #4dab7f;
+  background-color: #7d0000;
   text-align: center;
   border-radius: 1px;
 }
