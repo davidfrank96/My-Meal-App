@@ -4,7 +4,7 @@
   "description": "Book A Meal App",
   "main": "App.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha --require @babel/register server/src/test/test.js --exit",
     "start:dev": "nodemon --watch server --exec babel-node app.js"
   },
   "repository": {
