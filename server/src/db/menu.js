@@ -1,21 +1,21 @@
 const menu = [
   {
-    id: 1111,
+    id: 1,
     name: "Fried Rice & chicken",
     price: "$20"
   },
   {
-    id: 2222,
+    id: 2,
     name: "Pizza",
     price: "$15"
   },
   {
-    id: 2222,
+    id: 3,
     name: "Coperate Meals",
     price: "$70"
   },
   {
-    id: 2222,
+    id: 4,
     name: "cake delicacy",
     price: "$50"
   }

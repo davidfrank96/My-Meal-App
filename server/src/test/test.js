@@ -1,6 +1,6 @@
 import chai, { expect } from "chai";
 import chaiHttp from "chai-http";
-import app from "/../NodeProjects/My meal App/My-Meal-App/app";
+import app from "/NodeProjects/My meal App/My-Meal-App/app";
 
 chai.use(chaiHttp);
 chai.should();
