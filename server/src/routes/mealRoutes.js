@@ -5,6 +5,6 @@ const mealRoutes = express.Router();
 
 mealRoutes.get("/meals", mealControllers.getMeal);
 
-
+mealRoutes.post("/meals", mealControllers.postMeal);
 
 export default mealRoutes;
