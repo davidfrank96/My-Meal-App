@@ -2,7 +2,7 @@ import express from "express";
 import logger from "morgan";
 import bodyParser from "body-parser";
 import menuRoutes from "./server/src/routes/menuRoutes";
-
+import mealRoutes from "./server/src/routes/mealRoutes";
 
 const app = express();
 
@@ -22,7 +22,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/v1/", menuRoutes);
-
+app.use("/api/v1/", mealRoutes);
 
 app.listen(port, () => {
   console.log(`App started and listening on port: ${port}`);
