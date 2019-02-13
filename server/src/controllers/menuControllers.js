@@ -9,7 +9,7 @@ class MenuControllers {
     });
   }
 
-  // Post Menu for the single day
+  // Post/add Menu for the  day
   static postMenu(req, res) {
     if (!req.body.name) {
       return res.status(400).send({
