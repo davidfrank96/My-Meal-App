@@ -8,6 +8,33 @@ class OrderControllers {
       data: orders
     });
   }
+
+  // put/Patch for updating the info of an order
+  static updateOrderName(req, res) {
+    const findOrder = orders.find(
+      order => order.id === parseInt(req.params.id, 10)
+    );
+    if (findOrder) {
+      delete findOrder.name;
+      findOrder.name = req.body.name;
+
+      return res.status(200).json({
+        status: res.statusCode,
+        data: [
+          {
+            id: findOrder.id,
+            name: findOrder.name,
+            plates: findOrder.plates,
+            price: findOrder.price
+          }
+        ]
+      });
+    }
+    return res.status(404).json({
+      status: res.statusCode,
+      message: "Order  not found"
+    });
+  }
 }
 
 export default OrderControllers;

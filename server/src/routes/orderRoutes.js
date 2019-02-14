@@ -5,4 +5,6 @@ const orderRoutes = express.Router();
 
 orderRoutes.get("/orders", orderControllers.getOrder);
 
+orderRoutes.patch("/orders/:id", orderControllers.updateOrderName);
+
 export default orderRoutes;
