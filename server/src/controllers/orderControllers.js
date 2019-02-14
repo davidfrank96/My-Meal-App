@@ -34,7 +34,36 @@ class OrderControllers {
       status: res.statusCode,
       message: "Order  not found"
     });
-  }
+    }
+
+    // Post/add an Order for the day
+    static postOrder(req, res) {
+        if (!req.body.name) {
+            return res.status(400).send({
+                status: res.statusCode,
+                message: "Meal name is required"
+            });
+        }
+        const newOrder = {
+          id: req.body.id,
+          name: req.body.name,
+          plates: req.body.plates,
+          price: req.body.price
+        };
+        orders.push(newOrder);
+        return res.status(201).json({
+            status: res.statusCode,
+            data: [
+                {
+                    id: newOrder.id,
+                    name: newOrder.name,
+                    plates: newOrder.plates,
+                    price: newOrder.price
+                }
+            ]
+        });
+    }
+
 }
 
 export default OrderControllers;
