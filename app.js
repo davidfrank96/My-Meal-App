@@ -3,6 +3,7 @@ import logger from "morgan";
 import bodyParser from "body-parser";
 import menuRoutes from "./server/src/routes/menuRoutes";
 import mealRoutes from "./server/src/routes/mealRoutes";
+import orderRoutes from "./server/src/routes/orderRoutes";
 
 const app = express();
 
@@ -23,6 +24,7 @@ app.get("/", (req, res) => {
 
 app.use("/api/v1/", menuRoutes);
 app.use("/api/v1/", mealRoutes);
+app.use("/api/v1/", orderRoutes);
 
 app.listen(port, () => {
   console.log(`App started and listening on port: ${port}`);
