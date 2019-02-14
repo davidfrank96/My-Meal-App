@@ -8,6 +8,7 @@ class MealControllers {
       data: meals
     });
   }
+  
   // Post/add a Meal Option
   static postMeal(req, res) {
     if (!req.body.name) {
