@@ -59,6 +59,29 @@ class MealControllers {
       message: "meal  not found"
     });
   }
+
+
+  //Delete Meals
+  static deleteMeal(req, res) {
+    const findMeal = meals.find(
+      mealobj => mealobj.id === parseInt(req.params.id, 10)
+    );
+    if (!findMeal) res.status(404).send("The record does not exist");
+
+    const index = meals.indexOf(findMeal);
+    meals.splice(index, 1);
+
+    res.status(200).json({
+      status: res.statusCode,
+      data: [
+        {
+          id: findMeal.id,
+          message: "meal has been deleted"
+        }
+      ]
+    });
+  }
+
 }
 
 export default MealControllers;
