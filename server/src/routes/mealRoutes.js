@@ -9,4 +9,6 @@ mealRoutes.post("/meals", mealControllers.postMeal);
 
 mealRoutes.patch("/meals/:id", mealControllers.updateMealName);
 
+mealRoutes.delete("/meals/:id", mealControllers.deleteMeal);
+
 export default mealRoutes;
