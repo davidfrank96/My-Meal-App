@@ -33,6 +33,32 @@ class MealControllers {
       ]
     });
   }
+
+  // put/Patch for updating the info of a meal
+  static updateMealName(req, res) {
+    const findMeal = meals.find(
+      meal => meal.id === parseInt(req.params.id, 10)
+    );
+    if (findMeal) {
+      delete findMeal.name;
+      findMeal.name = req.body.name;
+
+      return res.status(200).json({
+        status: res.statusCode,
+        data: [
+          {
+            id: findMeal.id,
+            name: findMeal.name,
+            price: findMeal.price
+          }
+        ]
+      });
+    }
+    return res.status(404).json({
+      status: res.statusCode,
+      message: "meal  not found"
+    });
+  }
 }
 
 export default MealControllers;

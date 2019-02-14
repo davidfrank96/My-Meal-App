@@ -7,4 +7,6 @@ mealRoutes.get("/meals", mealControllers.getMeal);
 
 mealRoutes.post("/meals", mealControllers.postMeal);
 
+mealRoutes.patch("/meals/:id", mealControllers.updateMealName);
+
 export default mealRoutes;
