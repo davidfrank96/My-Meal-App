@@ -1,9 +1,9 @@
 import express from "express";
 import logger from "morgan";
 import bodyParser from "body-parser";
-import menuRoutes from "./server/src/routes/menuRoutes";
-import mealRoutes from "./server/src/routes/mealRoutes";
-import orderRoutes from "./server/src/routes/orderRoutes";
+import menuRoutes from "./routes/menuRoutes";
+import mealRoutes from "./routes/mealRoutes";
+import orderRoutes from "./routes/orderRoutes";
 
 const app = express();
 
