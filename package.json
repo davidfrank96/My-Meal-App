@@ -4,8 +4,10 @@
   "description": "Book A Meal App",
   "main": "App.js",
   "scripts": {
-    "test": "mocha --require @babel/register server/src/test/test.js --exit",
-    "start:dev": "nodemon --watch server --exec babel-node app.js"
+    "test": "nyc --reporter=html --reporter=text mocha --timeout 50000 --exit --require @babel/register server/src/test/test.js --exit",
+    "start:dev": "nodemon --watch server --exec babel-node server/src/app.js",
+    "coveralls": "nyc --reporter=lcov --reporter=text-lcov npm test",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
     "type": "git",
@@ -31,12 +33,14 @@
   "devDependencies": {
     "chai": "^4.2.0",
     "chai-http": "^4.2.1",
+    "coveralls": "^3.0.2",
     "eslint": "^5.13.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.16.0",
     "mocha": "^5.2.0",
     "mocha-lcov-reporter": "^1.3.0",
     "nodemon": "^1.18.10",
+    "nyc": "^13.3.0",
     "supertest": "^3.4.2"
   }
 }
