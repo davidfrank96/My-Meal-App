@@ -1,21 +1,21 @@
 const meals = [
   {
-    id: 101,
+    id: 1,
     name: "Fried Rice & chicken",
     price: "$20"
   },
   {
-    id: 202,
+    id: 2,
     name: "Plaintain",
     price: "$15"
   },
   {
-    id: 303,
+    id: 3,
     name: "Coperate Meals",
     price: "$70"
   },
   {
-    id: 404,
+    id: 4,
     name: "stew and Bread",
     price: "$50"
   }
