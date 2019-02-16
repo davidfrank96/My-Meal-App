@@ -11,7 +11,7 @@ class MenuControllers {
 
   // Post/add Menu for the  day
   static postMenu(req, res) {
-  if (!req.body.name) {
+   if (!req.body.name) {
     return res.status(400).send({
         status: res.statusCode,
         message: "Menu name is required"
