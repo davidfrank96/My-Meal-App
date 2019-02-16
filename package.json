@@ -7,7 +7,8 @@
     "test": "nyc --reporter=html --reporter=text mocha --timeout 50000 --exit --require @babel/register server/src/test/test.js --exit",
     "start:dev": "nodemon --watch server --exec babel-node server/src/app.js",
     "coveralls": "nyc --reporter=lcov --reporter=text-lcov npm test",
-    "coverage": "nyc report --reporter=text-lcov | coveralls"
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "codeclimate-coverage":"codeclimate-test-reporter < lcov.info"
   },
   "repository": {
     "type": "git",
@@ -33,6 +34,7 @@
   "devDependencies": {
     "chai": "^4.2.0",
     "chai-http": "^4.2.1",
+    "codeclimate-test-reporter": "^0.5.1",
     "coveralls": "^3.0.2",
     "eslint": "^5.13.0",
     "eslint-config-airbnb-base": "^13.1.0",
