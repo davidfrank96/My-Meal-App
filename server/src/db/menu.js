@@ -1,8 +1,8 @@
 const menu = [
   {
     id: 1,
-    name: "Fried Rice & chicken",
-    price: "$20"
+    name: "Chicken & chips",
+    price: "$70"
   },
   {
     id: 2,
