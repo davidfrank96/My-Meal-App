@@ -1,6 +1,6 @@
 language: node_js
 node_js:
- - "stable"
+  - "stable"
 
 cache:
   directories:
@@ -8,15 +8,13 @@ cache:
 
 env:
   global:
-  - CODECLIMATE_REPO_TOKEN=9e83697183b61817c399b2199742dc61ed9f1c454e1d973774eafdc8080    
+    - CODECLIMATE_REPO_TOKEN=9e83697183b61817c399b2199742dc61ed9f1c454e1d973774eafdc80807db67
 
 install:
   - npm install
 
 script:
   - npm test
-  
+
 after_success:
   - npm run coverage
-
-
