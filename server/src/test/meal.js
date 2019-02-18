@@ -1,10 +1,9 @@
-import chai, { expect } from "chai";
+import chai, { expect, assert } from "chai";
 import chaiHttp from "chai-http";
 import app from "../app";
 
 chai.use(chaiHttp);
 chai.should();
-
 
 describe("meal", () => {
   describe("GET Meal", () => {
