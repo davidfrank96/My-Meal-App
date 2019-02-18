@@ -1,3 +1,3 @@
-import "./meal";
-import "./menu";
-import "./order";
+import './meal';
+import './menu';
+import './order';
