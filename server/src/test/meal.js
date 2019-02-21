@@ -49,7 +49,7 @@ describe("meal", () => {
         .post("/api/v1/meals")
         .send({
           name: "Meal",
-          price: "$"
+          price: "$10"
         })
         .end((err, res) => {
           res.should.have.status(201);
@@ -59,12 +59,12 @@ describe("meal", () => {
     });
   });
 
-  describe("PATCH a Meal", () => {
+  describe("PUT a Meal", () => {
     it("should EDIT a Meal name", done => {
       const id = 1;
       chai
         .request(app)
-        .patch(`/api/v1/meals/${id}`)
+        .put(`/api/v1/meals/${id}`)
         .send({
           name: "Meal Name"
         })

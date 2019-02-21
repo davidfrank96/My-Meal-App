@@ -7,7 +7,7 @@ mealRoutes.get("/meals", mealControllers.getMeal);
 
 mealRoutes.post("/meals", mealControllers.postMeal);
 
-mealRoutes.patch("/meals/:id", mealControllers.updateMealName);
+mealRoutes.put("/meals/:id", mealControllers.updateMealName);
 
 mealRoutes.delete("/meals/:id", mealControllers.deleteMeal);
 
