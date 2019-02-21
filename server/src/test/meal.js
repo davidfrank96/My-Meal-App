@@ -49,7 +49,7 @@ describe("meal", () => {
         .post("/api/v1/meals")
         .send({
           name: "Meal",
-          price: "$"
+          price: "$10"
         })
         .end((err, res) => {
           res.should.have.status(201);

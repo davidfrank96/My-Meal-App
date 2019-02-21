@@ -7,6 +7,6 @@ orderRoutes.get("/orders", orderControllers.getOrder);
 
 orderRoutes.post("/orders", orderControllers.postOrder);
 
-orderRoutes.patch("/orders/:id", orderControllers.updateOrderName);
+orderRoutes.put("/orders/:id", orderControllers.updateOrderName);
 
 export default orderRoutes;
