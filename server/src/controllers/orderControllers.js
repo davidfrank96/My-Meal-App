@@ -45,7 +45,7 @@ class OrderControllers {
             });
         }
         const newOrder = {
-          id: req.body.id,
+          id: orders.length + 1,
           name: req.body.name,
           plates: req.body.plates,
           price: req.body.price

@@ -8,7 +8,7 @@ class MealControllers {
       data: meals
     });
   }
-  
+
   // Post/add a Meal Option
   static postMeal(req, res) {
     if (!req.body.name) {
@@ -18,7 +18,7 @@ class MealControllers {
       });
     }
     const newMeal = {
-      id: req.body.id,
+      id: meals.length + 1,
       name: req.body.name,
       price: req.body.price
     };
@@ -61,7 +61,6 @@ class MealControllers {
     });
   }
 
-
   //Delete Meals
   static deleteMeal(req, res) {
     const findMeal = meals.find(
@@ -82,7 +81,6 @@ class MealControllers {
       ]
     });
   }
-
 }
 
 export default MealControllers;
