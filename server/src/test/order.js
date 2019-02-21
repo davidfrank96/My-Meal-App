@@ -65,7 +65,7 @@ describe("Orders", () => {
       const id = 1;
       chai
         .request(app)
-        .patch(`/api/v1/orders/${id}`)
+        .put(`/api/v1/orders/${id}`)
         .send({
           name: "order Name",
           plates: "number of plates",
