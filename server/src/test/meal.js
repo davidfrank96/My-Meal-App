@@ -53,7 +53,8 @@ describe("meal", () => {
         })
         .end((err, res) => {
           res.should.have.status(201);
-          res.body.should.be.a("object");
+          res.body.name.should.be.equal.to("Meal Name");
+          res.body.price.should.be.equal.to("$");
           done();
         });
     });
