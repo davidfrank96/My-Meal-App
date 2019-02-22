@@ -1,4 +1,4 @@
-import chai, { expect } from "chai";
+import chai, { expect, assert } from "chai";
 import chaiHttp from "chai-http";
 import app from "../app";
 
@@ -14,6 +14,8 @@ describe("Orders", () => {
         .end((err, res) => {
           res.should.have.status(200);
           res.body.should.be.a("object");
+          assert.equal(res.body.data.name);
+          assert.equal(res.body.data.price);
           done();
         });
     });
@@ -48,32 +50,38 @@ describe("Orders", () => {
         .request(app)
         .post("/api/v1/orders")
         .send({
-          name: "Orders",
-          plates: "",
-          price: "$"
+          name: "Fried Rice & chicken",
+          plates: "10",
+          price: "$20"
         })
         .end((err, res) => {
           res.should.have.status(201);
           res.body.should.be.a("object");
+          assert.equal(res.body.data[0].name, "Fried Rice & chicken");
+          assert.equal(res.body.data[0].price, "$20");
+          assert.equal(res.body.data[0].plates, "10");
           done();
         });
     });
   });
 
-  describe("PATCH an Order", () => {
+  describe("PUT an Order", () => {
     it("should EDIT an order ", done => {
       const id = 1;
       chai
         .request(app)
         .put(`/api/v1/orders/${id}`)
         .send({
-          name: "order Name",
+          name: "Fried Rice & chicken",
           plates: "number of plates",
           prices: "prices"
         })
         .end((err, res) => {
           res.should.have.status(200);
           res.body.should.be.a("object");
+          assert.equal(res.body.data[0].name, "Fried Rice & chicken");
+          assert.equal(res.body.data[0].price, "$20");
+          assert.equal(res.body.data[0].plates, "10");
           done();
         });
     });
