@@ -37,7 +37,7 @@ options
 - GET **api/v1/menu/** Caterers and Users can Get the menu for the 
 
 day 
-- POST **api/v1/menu/** Caterers can Set a menu for the day 
+- POST **api/v1/menu** Caterers can Set a menu for the day 
 - GET **api/v1/orders** Get All Orders
 - POST **api/v1/orders** Users can make orders
 - PUT **api/v1/orders/:orderId** Users can modify their orders
