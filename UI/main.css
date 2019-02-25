@@ -5,7 +5,6 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Source Sans Pro", sans-serif;
-
   -webkit-font-smoothing: antialiased;
   background-color: #cd7f32;
 }
@@ -301,13 +300,49 @@ button.vote {
   font-size: 20px;
   font-family: Sa;
   border-radius: 5px;
-  display: block;
+  display: inherit;
 }
-
 
 button.vote:hover {
   background-color: #cd7f32;
-  box-shadow: 0px 0px 35px #ff8c00;
+  box-shadow: 0px 0px 35px red;
+}
+
+button.save{
+  margin: 20px 10px;
+  height: 40px;
+  width: 70px;
+  font: outline;
+  cursor: -webkit-grab;
+  border: 2px solid #ff8c00;
+  font-size: 20px;
+  font-family: Sa;
+  border-radius: 5px;
+  display: inline-block;
+  
+}
+
+button.save:hover {
+  background-color: #cd7f32;
+  box-shadow: 0px 0px 35px #1eff00;
+}
+
+button.add{
+  margin: 20px 10px;
+  height: 40px;
+  width: 120px;
+  font: outline;
+  cursor: -webkit-grab;
+  border: 2px solid #ff8c00;
+  font-size: 20px;
+  font-family: Sa;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+button.add:hover {
+  background-color: #cd7f32;
+  box-shadow: 0px 0px 35px #ff6600;
 }
 
 /* main box container */
@@ -622,15 +657,15 @@ td:first-child {
 }
 
 .btn-primary {
-  background: rgb(68, 160, 141);
-  border-color: rgb(47, 51, 92);
+  background: #ff6600;
+  border-color: #7d0000;
 }
 
 .btn-warning {
   background: rgb(19, 97, 12);
 }
 .btn-danger {
-  background: #ac413e;
+  background: #7d0000;
 }
 
 /* 
@@ -685,3 +720,7 @@ label {
   line-height: 30px;
 }
 
+form.form-field{
+  text-align: center;
+  display: inline-flex;
+}
