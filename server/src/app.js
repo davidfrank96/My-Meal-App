@@ -4,7 +4,10 @@ import bodyParser from "body-parser";
 import menuRoutes from "./routes/menuRoutes";
 import mealRoutes from "./routes/mealRoutes";
 import orderRoutes from "./routes/orderRoutes";
+import sequelize from "./util/db";
+import { config } from "dotenv";
 
+config();
 const app = express();
 
 app.use(logger("dev"));
@@ -29,5 +32,17 @@ app.use("/api/v1/", orderRoutes);
 app.listen(port, () => {
   console.log(`App started and listening on port: ${port}`);
 });
+
+sequelize
+  .sync()
+  .then(() => {
+    console.log("DB Connection has been established");
+    app.listen(process.env.PORT, () => {
+      app.emit("dbConnected");
+    });
+  })
+  .catch(err => {
+    console.error("Unable to connect to the database:", err);
+  });
 
 export default app;

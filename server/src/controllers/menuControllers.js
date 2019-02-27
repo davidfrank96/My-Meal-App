@@ -1,4 +1,4 @@
-import menu from "../db/menu";
+import menu from "../models/menu";
 
 class MenuControllers {
   //Get Menu for the Single day

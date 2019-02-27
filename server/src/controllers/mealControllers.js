@@ -1,4 +1,4 @@
-import meals from "../db/meals";
+import meals from "../models/meals";
 
 class MealControllers {
   //Get Meal for the Single day

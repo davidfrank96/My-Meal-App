@@ -1,4 +1,4 @@
-import orders from "../db/orders";
+import orders from "../models/orders";
 
 class OrderControllers {
   //Get Orders for the day
