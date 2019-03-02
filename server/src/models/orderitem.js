@@ -1,22 +1,22 @@
 import Sequelize from 'sequelize';
 import sequelize from '../util/db';
 
-const Menu = sequelize.define('menu', {
+const OrderItem = sequelize.define('orderItem', {
     id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
         allowNull: false,
         primaryKey: true
     },
-    meals: {
-        type: Sequelize.JSON,
+    mealId: {
+        type: Sequelize.INTEGER,
         allowNull: false
     },
     quantity: {
-        type: Sequelize.JSON,
+        type: Sequelize.INTEGER,
         allowNull: false
     },
-    catererId: {
+    userId: {
         type: Sequelize.INTEGER,
         allowNull: false
     },
@@ -24,4 +24,4 @@ const Menu = sequelize.define('menu', {
     updatedAt: Sequelize.DATEONLY
 });
 
-export default Menu;
+export default OrderItem;
