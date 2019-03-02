@@ -1,40 +1,50 @@
 import meals from "../models/meals";
 
 class MealControllers {
-  //Get Meal for the Single day
-  static getMeal(req, res) {
-    return res.status(200).json({
-      status: res.statusCode,
-      data: meals
-    });
-  }
 
-  // Post/add a Meal Option
-  static postMeal(req, res) {
-    if (!req.body.name) {
-      return res.status(400).send({
-        status: res.statusCode,
-        message: "Meal name is required"
+  static async getMeal(req, res) {
+    try {
+      const meals = await Meal.findAll({ where: { catererId: req.caterer.id } });
+      return res.status(200).json({
+        status: 'success',
+        message: 'Meals Retrieved',
+        data: meals
+      });
+    } catch (err) {
+      return res.status(500).json({
+        status: 'error',
+        message: 'Failed to Retrieve Meals'
       });
     }
-    const newMeal = {
-      id: meals.length + 1,
-      name: req.body.name,
-      price: req.body.price
-    };
-    meals.push(newMeal);
-    return res.status(201).json({
-      status: res.statusCode,
-      data: [
-        {
-          id: newMeal.id,
-          name: newMeal.name,
-          price: newMeal.price
-        }
-      ]
-    });
   }
 
+  static async postMeal(req, res) {
+    try {
+      const { name, price } = req.body;
+      const { image } = req.files;
+      const imageUrl = `/src/images/${image.name}`;
+      const meal = await Meal.create({ name, price, imageUrl, catererId: req.caterer.id });
+      await image.mv(`.${imageUrl}`);
+      return res.status(201).json({
+        status: 'success',
+        message: 'Meal Option Added',
+        data: {
+          id: meal.id,
+          name: meal.name,
+          price: meal.price,
+          imageUrl: meal.imageUrl
+        }
+      });
+    } catch (err) {
+      return res.status(500).json({
+        status: 'error',
+        message: err.message
+      });
+    }
+  }
+
+
+ 
   // put/Patch for updating the info of a meal
   static updateMealName(req, res) {
     const findMeal = meals.find(
