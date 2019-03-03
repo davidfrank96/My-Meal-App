@@ -13,7 +13,7 @@ class MenuControllers {
 
   static async getMenu(req, res) {
     try {
-      const today = MenuController.generateDate();
+      const today = MenuControllers.generateDate();
       const menu = await Menu.findAll({ where: { createdAt: today } });
       return res.status(200).json({
         status: "success",
@@ -31,7 +31,7 @@ class MenuControllers {
 
   static async getSingleMenu(req, res) {
     try {
-      const today = MenuController.generateDate();
+      const today = MenuControllers.generateDate();
       const menu = await Menu.findOne({
         where: { createdAt: today, catererId: req.caterer.id }
       });
@@ -63,32 +63,48 @@ class MenuControllers {
       throw new Error(`Update - ${err.message}`);
     }
   }
-}
 
-  // Post/add Menu for the  day
-  static postMenu(req, res) {
-    if (!req.body.name) {
-      return res.status(400).send({
-        status: res.statusCode,
-        message: "Menu name is required"
+
+  static async postMenu(req, res) {
+    try {
+      const { mealId, quantity } = req.body;
+      const meal = await Meal.findOne({ where: { id: mealId, catererId: req.caterer.id } });
+      if (!meal) {
+        throw new Error(`Meal with that ID Doesn't exist`);
+      }
+      const { createdAt, updatedAt, ...storeMeal } = meal.dataValues;
+      storeMeal.quantity = Number(quantity);
+      const today = MenuControllers.generateDate();
+      const menu = await Menu.findAll({ where: { catererId: req.caterer.id, createdAt: today } });
+      let menuMeals;
+      if (menu.length === 0) {
+        menuMeals = [];
+        menuMeals.push(storeMeal);
+        await Menu.create({
+          meals: JSON.stringify(menuMeals),
+          catererId: req.caterer.id
+        });
+        await Meal.update({ quantity }, { where: { id: mealId } });
+      } else {
+        menuMeals = await MenuControllers.updateMeals(menu[0], storeMeal, mealId, quantity);
+        await Menu.update(
+          { meals: JSON.stringify(menuMeals) },
+          { where: { catererId: req.caterer.id, createdAt: today } }
+        );
+        const mealIndex = menuMeals.findIndex(menuMeal => menuMeal.id === Number(mealId));
+        await Meal.update({ quantity: menuMeals[mealIndex].quantity }, { where: { id: mealId } });
+      }
+      return res.status(200).json({
+        status: 'success',
+        message: 'Meal Added to Menu',
+        data: menuMeals
+      });
+    } catch (err) {
+      return res.status(500).json({
+        status: 'error',
+        message: err.message
       });
     }
-    const newMenu = {
-      id: menu.length + 1,
-      name: req.body.name,
-      price: req.body.price
-    };
-    menu.push(newMenu);
-    return res.status(201).json({
-      status: res.statusCode,
-      data: [
-        {
-          id: newMenu.id,
-          name: newMenu.name,
-          price: newMenu.price
-        }
-      ]
-    });
   }
 }
 
