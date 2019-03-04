@@ -1,5 +1,4 @@
 import express from "express";
-import menu from "../models/menu";
 import menuControllers from "../controllers/menuControllers";
 const menuRoutes = express.Router();
 

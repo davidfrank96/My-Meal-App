@@ -1,5 +1,4 @@
 import express from "express";
-import meals from "../models/meals";
 import mealControllers from "../controllers/mealControllers";
 const mealRoutes = express.Router();
 
