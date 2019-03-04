@@ -72,21 +72,21 @@ class MenuControllers {
       if (!meal) {
         throw new Error(`Meal with that ID Doesn't exist`);
       }
-      const { createdAt, updatedAt, ...storeMeal } = meal.dataValues;
-      storeMeal.quantity = Number(quantity);
-      const today = MenuControllers.generateDate();
+      const { createdAt, updatedAt, ...safeMeal } = meal.dataValues;
+      safeMeal.quantity = Number(quantity);
+      const today = MenuController.generateDate();
       const menu = await Menu.findAll({ where: { catererId: req.caterer.id, createdAt: today } });
       let menuMeals;
       if (menu.length === 0) {
         menuMeals = [];
-        menuMeals.push(storeMeal);
+        menuMeals.push(safeMeal);
         await Menu.create({
           meals: JSON.stringify(menuMeals),
           catererId: req.caterer.id
         });
         await Meal.update({ quantity }, { where: { id: mealId } });
       } else {
-        menuMeals = await MenuControllers.updateMeals(menu[0], storeMeal, mealId, quantity);
+        menuMeals = await MenuController.updateMeals(menu[0], safeMeal, mealId, quantity);
         await Menu.update(
           { meals: JSON.stringify(menuMeals) },
           { where: { catererId: req.caterer.id, createdAt: today } }

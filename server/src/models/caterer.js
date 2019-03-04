@@ -1,5 +1,5 @@
 import Sequelize from 'sequelize';
-import sequelize from '../util/db';
+import sequelize from "../config/db";
 
 const Caterer = sequelize.define('caterer', {
     id: {

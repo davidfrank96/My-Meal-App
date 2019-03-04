@@ -8,7 +8,7 @@ orderRoutes.post("/orders", OrderControllers.postOrder);
 
 orderRoutes.put("/orders/:id", OrderControllers.updateOrderName);
 
-orderRoutes.post("/orders/chechout", OrderControllers.checkoutOrders);
+orderRoutes.post("/orders/checkout", OrderControllers.checkoutOrders);
 
 orderRoutes.get("/orders/user", OrderControllers.getOrderItems);
 

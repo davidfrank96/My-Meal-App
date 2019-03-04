@@ -4,7 +4,7 @@ import bodyParser from "body-parser";
 import menuRoutes from "./routes/menuRoutes";
 import mealRoutes from "./routes/mealRoutes";
 import orderRoutes from "./routes/orderRoutes";
-import sequelize from "./util/db";
+import sequelize from "./config/db";
 import { config } from "dotenv";
 
 config();
