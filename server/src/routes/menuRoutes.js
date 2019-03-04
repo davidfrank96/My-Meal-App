@@ -7,4 +7,6 @@ menuRoutes.get("/menu", menuControllers.getMenu);
 
 menuRoutes.post("/menu", menuControllers.postMenu);
 
+menuRoutes.post("/menu/caterer", menuControllers.getSingleMenu);
+
 export default menuRoutes;

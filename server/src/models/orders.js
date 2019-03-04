@@ -16,10 +16,6 @@ const Order = sequelize.define("order", {
     type: Sequelize.INTEGER,
     allowNull: false
   },
-  billing_address: {
-    type: Sequelize.TEXT,
-    allowNull: false
-  },
   delivery_status: {
     type: Sequelize.INTEGER,
     default: 0

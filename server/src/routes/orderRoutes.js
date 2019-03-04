@@ -1,12 +1,20 @@
 import express from "express";
-import orders from "../models/orders";
-import orderControllers from "../controllers/orderControllers";
+import Order from "../models/orders";
+import OrderControllers from "../controllers/orderControllers";
 const orderRoutes = express.Router();
 
-orderRoutes.get("/orders", orderControllers.getOrder);
+orderRoutes.get("/orders", OrderControllers.getOrder);
 
-orderRoutes.post("/orders", orderControllers.postOrder);
+orderRoutes.post("/orders", OrderControllers.postOrder);
 
-orderRoutes.put("/orders/:id", orderControllers.updateOrderName);
+orderRoutes.put("/orders/:id", OrderControllers.updateOrderName);
+
+orderRoutes.post("/orders/chechout", OrderControllers.checkoutOrders);
+
+orderRoutes.get("/orders/user", OrderControllers.getOrderItems);
+
+
+
+
 
 export default orderRoutes;

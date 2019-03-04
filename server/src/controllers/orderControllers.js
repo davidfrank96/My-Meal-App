@@ -3,8 +3,8 @@ import OrderItem from "../models/orderItem";
 import Meal from "../models/meals";
 import Menu from "../models/menu";
 
-class OrderController {
-  static async addToOrders(req, res) {
+class OrderControllers {
+  static async postOrder(req, res) {
     try {
       const { mealId, quantity } = req.body;
       const orderItem = await OrderItem.findOne({
@@ -37,7 +37,7 @@ class OrderController {
     }
   }
 
-  static async getOrders(req, res) {
+  static async getOrder(req, res) {
     try {
       const orders = await Order.findAll({
         where: { catererId: req.caterer.id }
@@ -86,7 +86,7 @@ class OrderController {
     }
   }
 
-  static async modifyOrder(req, res) {
+  static async updateOrderName(req, res) {
     try {
       const { orderId } = req.params;
       const { action } = req.body;
@@ -151,7 +151,6 @@ class OrderController {
       await OrderController.createOrders(
         caterers,
         meals,
-        req.body.billingAddress,
         req.user.id
       );
       return res.status(201).json({
@@ -206,7 +205,7 @@ class OrderController {
     }
   }
 
-  static async createOrders(caterers, meals, billingAddress, userId) {
+  static async createOrders(caterers, meals,  userId) {
     try {
       caterers.forEach(async caterer => {
         let catererTotal = 0;
@@ -217,7 +216,6 @@ class OrderController {
         await Order.create({
           order: JSON.stringify(catererMeals),
           total: catererTotal,
-          billing_address: billingAddress,
           catererId: caterer,
           userId,
           delivery_status: 0
@@ -229,4 +227,4 @@ class OrderController {
   }
 }
 
-export default OrderController;
+export default OrderControllers;

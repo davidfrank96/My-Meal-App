@@ -21,12 +21,12 @@ const Meal = sequelize.define('meal', {
         default: null
     },
     imageUrl: {
-        type: Sequelize.STRING,
-        allowNull: false
+    type: Sequelize.STRING,
+    allowNull: false
     },
     catererId: {
         type: Sequelize.INTEGER,
-        allowNull: false
+       allowNull: false
     },
     createdAt: Sequelize.DATEONLY,
     updatedAt: Sequelize.DATEONLY

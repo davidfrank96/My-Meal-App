@@ -1,4 +1,4 @@
-import meals from "../models/meals";
+import Meal from "../models/meals";
 
 class MealControllers {
   static async getMeal(req, res) {
@@ -30,7 +30,7 @@ class MealControllers {
         imageUrl,
         catererId: req.caterer.id
       });
-      await image.mv(`.${imageUrl}`);
+     await image.mv(`.${imageUrl}`);
       return res.status(201).json({
         status: "success",
         message: "Meal Option Added",

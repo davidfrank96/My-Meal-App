@@ -1,4 +1,4 @@
-import menu from "../models/menu";
+import Menu from "../models/menu";
 
 class MenuControllers {
   static generateDate() {
