@@ -4,7 +4,7 @@ class MealControllers {
   static async getMeal(req, res) {
     try {
       const meals = await Meal.findAll({
-        where: { catererId: req.caterer.id }
+        where: { catererId: 2 }
       });
       return res.status(200).json({
         status: "success",
@@ -28,7 +28,7 @@ class MealControllers {
         name,
         price,
         imageUrl,
-        catererId: req.caterer.id
+        catererId: 2
       });
      await image.mv(`.${imageUrl}`);
       return res.status(201).json({

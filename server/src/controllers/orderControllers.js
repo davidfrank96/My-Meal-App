@@ -40,7 +40,7 @@ class OrderControllers {
   static async getOrder(req, res) {
     try {
       const orders = await Order.findAll({
-        where: { catererId: req.caterer.id }
+        where: { catererId: 2 }
       });
       return res.status(200).json({
         status: "success",
