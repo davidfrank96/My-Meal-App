@@ -1,3 +1,4 @@
+import fs from "fs";
 import Meal from "../models/meals";
 
 class MealControllers {
@@ -30,7 +31,7 @@ class MealControllers {
         imageUrl,
         catererId: 2
       });
-     await image.mv(`.${imageUrl}`);
+      await image.mv(`.${imageUrl}`);
       return res.status(201).json({
         status: "success",
         message: "Meal Option Added",
@@ -49,7 +50,6 @@ class MealControllers {
     }
   }
 
-  
   static async updateMealName(req, res) {
     try {
       const meal = await Meal.findOne({ where: { id: req.params.id } });
@@ -88,7 +88,6 @@ class MealControllers {
     }
   }
 
- 
   static async deleteMeal(req, res) {
     try {
       const { id } = req.params;
@@ -98,16 +97,18 @@ class MealControllers {
       });
       await meal.destroy();
       return res.status(200).json({
-        status: 'success',
-        message: 'Meal Option Deleted'
+        status: "success",
+        message: "Meal Option Deleted"
       });
     } catch (err) {
       return res.status(500).json({
-        status: 'error',
+        status: "error",
         message: err.message
       });
     }
   }
+
+  
 }
 
 

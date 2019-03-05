@@ -9,15 +9,15 @@ class CatererController {
             const {
               name,
               email,
-              Business_name,
+              //Business_name,
               password
             } = req.body;
-            const Business_name = req.body.Business_name;
+            //const Business_name = req.body.Business_name;
             const hash = await bcrypt.hash(password, 10);
             const caterer = await Caterer.create({
               name,
               email,
-              Business_name: Business_name,
+              //Business_name: Business_name,
               password: hash
             });
             const safeCaterer = {

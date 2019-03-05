@@ -8,7 +8,7 @@ class OrderControllers {
     try {
       const { mealId, quantity } = req.body;
       const orderItem = await OrderItem.findOne({
-        where: { mealId, userId: req.user.id }
+        where: { mealId, userId: 4 }
       });
       const response = {};
       if (orderItem) {
@@ -20,7 +20,7 @@ class OrderControllers {
         const newOrderItem = await OrderItem.create({
           mealId,
           quantity,
-          userId: req.user.id
+          userId: 4
         });
         response.body = {
           status: "success",
@@ -58,7 +58,7 @@ class OrderControllers {
   static async getOrderItems(req, res) {
     try {
       const orderItems = await OrderItem.findAll({
-        where: { userId: req.user.id },
+        where: { userId: 4 },
         include: [Meal]
       });
       if (!orderItems) {
@@ -91,7 +91,7 @@ class OrderControllers {
       const { orderId } = req.params;
       const { action } = req.body;
       const orderItem = await OrderItem.findOne({
-        where: { id: orderId, userId: req.user.id },
+        where: { id: orderId, userId: 4 },
         include: [Meal]
       });
       if (action === "increase") {
@@ -135,7 +135,7 @@ class OrderControllers {
   static async checkoutOrders(req, res) {
     try {
       const orderItems = await OrderItem.findAll({
-        where: { userId: req.user.id },
+        where: { userId: 4 },
         include: [Meal]
       });
       const meals = [];
@@ -147,7 +147,7 @@ class OrderControllers {
         caterers.add(orderMeal.meal.catererId);
       });
       await OrderController.reduceQuantity(meals);
-      await OrderItem.destroy({ where: { userId: req.user.id } });
+      await OrderItem.destroy({ where: { userId: 4 } });
       await OrderController.createOrders(
         caterers,
         meals,
