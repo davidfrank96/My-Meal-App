@@ -4,6 +4,8 @@ import bodyParser from "body-parser";
 import menuRoutes from "./routes/menuRoutes";
 import mealRoutes from "./routes/mealRoutes";
 import orderRoutes from "./routes/orderRoutes";
+import catererRoutes from "./routes/catererRoutes";
+
 import sequelize from "./config/db";
 import { config } from "dotenv";
 
@@ -28,6 +30,7 @@ app.get("/", (req, res) => {
 app.use("/api/v1/", menuRoutes);
 app.use("/api/v1/", mealRoutes);
 app.use("/api/v1/", orderRoutes);
+app.use("/api/v1/", catererRoutes);
 
 app.listen(port, () => {
   console.log(`App started and listening on port: ${port}`);
