@@ -38,7 +38,6 @@ describe('User Auth Signup Endpoint Tests', () => {
             .send({
                 name: 'Roger Test',
                 email: 'roger',
-                phone: '08028372825',
                 password: 'pass'
             })
             .then(res => {
@@ -56,7 +55,6 @@ describe('User Auth Signup Endpoint Tests', () => {
             .send({
                 name: 'Roger Test',
                 email: 'roger@test.com',
-                phone: '08028372825',
                 password: 'password'
             })
             .then(res => {
@@ -73,7 +71,6 @@ describe('User Auth Signup Endpoint Tests', () => {
             .send({
                 name: 'Roger Test',
                 email: 'roger@test.com',
-                phone: '08028372825',
                 password: 'password'
             })
             .then(res => {

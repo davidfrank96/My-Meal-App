@@ -13,6 +13,8 @@ import Menu from "./models/menu";
 import Order from "./models/orders";
 import OrderItem from "./models/orderItem";
 import { config } from "dotenv";
+import router from "./routes/routes";
+import { userInfo } from "os";
 
 config();
 const app = express();
@@ -55,9 +57,10 @@ sequelize
     app.listen(process.env.PORT, () => {
       app.emit("dbConnected");
     });
+    
   })
   .catch(err => {
-    console.error("Unable to connect to the database:", err);
+    console.error("Unable to connect to the database:", err);    
   });
 
 export default app;

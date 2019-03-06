@@ -16,10 +16,6 @@ const Order = sequelize.define("order", {
     type: Sequelize.INTEGER,
     allowNull: false
   },
-  delivery_status: {
-    type: Sequelize.INTEGER,
-    default: 0
-  },
   catererId: {
     type: Sequelize.INTEGER,
     allowNull: false

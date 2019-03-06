@@ -17,10 +17,6 @@ const Caterer = sequelize.define('caterer', {
         allowNull: false,
         unique: true
     },
-    Business_name: {
-        type: Sequelize.STRING,
-        allowNull: false
-    },
     password: {
         type: Sequelize.STRING,
         allowNull: false
