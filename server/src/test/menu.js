@@ -60,10 +60,10 @@ describe("User Get all Menus Endpoint Tests", () => {
   });
   it(`GET ${API_PREFIX}/menu/ - Fetch All Menus - (User Authorized)`, done => {
     User.findOne({ where: { email: userPayload.email } }).then(user => {
-      const { id, name, email, phone } = user;
+      const { id, name, email, } = user;
       const token = jwt.sign(
         {
-          user: { id, name, email, phone }
+          user: { id, name, email, }
         },
         secret,
         {
@@ -99,10 +99,10 @@ describe("Caterer Can Get theit Menu Endpoint Tests", () => {
   it(`GET ${API_PREFIX}/menu/caterer - Fetch Menu - (Caterer Authorized)`, done => {
     Caterer.findOne({ where: { email: catererPayload.email } }).then(
       caterer => {
-        const { id, name, email, phone } = caterer;
+        const { id, name, email,} = caterer;
         const token = jwt.sign(
           {
-            caterer: { id, name, email, phone },
+            caterer: { id, name, email,},
             isCaterer: true
           },
           secret,
@@ -132,7 +132,7 @@ describe("Caterer Add Meal To Menu Endpoint Tests", () => {
         name: "Fake Food",
         price: 700,
         imageUrl: "img.png",
-        catererId: caterer.id
+        catererId: 2
       });
     })
     .then(meal => {

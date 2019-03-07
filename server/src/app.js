@@ -46,19 +46,16 @@ OrderItem.belongsTo(Meal, { constraints: true, onDelete: "CASCADE" });
 
 
 const port = process.env.PORT || 8000;
-app.listen(port, () => {
-  console.log(`App started and listening on port: ${port}`);
-});
+ 
 
 sequelize
-  .sync()
+  .sync({force: true})
   .then(() => {
     console.log("DB Connection has been established");
     app.listen(process.env.PORT, () => {
       app.emit("dbConnected");
-    });
-    
-  })
+    });   
+})
   .catch(err => {
     console.error("Unable to connect to the database:", err);    
   });

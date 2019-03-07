@@ -28,8 +28,8 @@ describe("meal", () => {
         .end((err, res) => {
           res.should.have.status(200);
           res.body.should.be.a("object");
-          assert.equal(res.body.data[0].name,);
-          assert.equal(res.body.data[0].price, );
+          assert.equal(res.body.data.name,);
+          assert.equal(res.body.data.price, );
           done();
         });
     });
@@ -54,8 +54,8 @@ describe("meal", () => {
         .end((err, res) => {
           res.should.have.status(201);
           res.body.should.be.a("object");
-          assert.equal(res.body.data[0].name,);
-          assert.equal(res.body.data[0].price,);
+          assert.equal(res.body.data.name,);
+          assert.equal(res.body.data.price,);
           done();
         });
     });
@@ -68,13 +68,13 @@ describe("meal", () => {
         .request(app)
         .put(`/api/v1/meals/${id}`)
         .send({
-          name: ""
+          name: "Meal Name"
         })
         .end((err, res) => {
           res.should.have.status(200);
           res.body.should.be.a("object");
-          assert.equal(res.body.data[0].name,);
-          assert.equal(res.body.data[0].price,);
+          assert.equal(res.body.data.name,);
+          assert.equal(res.body.data.price,);
           done();
         });
     });
@@ -89,8 +89,8 @@ describe("meal", () => {
         .end((err, res) => {
           res.should.have.status(200);
           res.body.should.be.a("object");
-          assert.equal(res.body.data[0].name);
-          assert.equal(res.body.data[0].price);
+          assert.equal(res.body.data.name);
+          assert.equal(res.body.data.price);
           done();
         });
     });
