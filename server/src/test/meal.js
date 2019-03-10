@@ -1,98 +1,87 @@
-import chai, { expect, assert } from "chai";
-import chaiHttp from "chai-http";
+import fs from "fs";
+import path from "path";
+import chai from "chai";
+import chaiHTTP from "chai-http";
+import jwt from "jsonwebtoken";
 import app from "../app";
+import secret from "../db/jwt_secret";
+import Caterer from "../db/models/caterer";
+import Meal from "../db/models/meals";
 
-chai.use(chaiHttp);
-chai.should();
+const { assert, expect, use } = chai;
 
-describe("meal", () => {
-  describe("GET Meal", () => {
-    it("should get all meals for the day", done => {
-      chai
-        .request(app)
-        .get("/api/v1/meals")
-        .end((err, res) => {
-          res.should.have.status(200);
-          res.body.should.be.a("object");
-          assert.equal(res.body.data.name);
-          assert.equal(res.body.data.price);
-          done();
-        });
-    });
+use(chaiHTTP);
 
-    it("should GET a Single Meal", done => {
-      const id = 1;
-      chai
-        .request(app)
-        .get(`/api/v1/meals`)
-        .end((err, res) => {
-          res.should.have.status(200);
-          res.body.should.be.a("object");
-          assert.equal(res.body.data.name,);
-          assert.equal(res.body.data.price, );
-          done();
-        });
-    });
+const API_PREFIX = "/api/v1";
+
+
+const catererPayload = {
+  name: "Billy Newton",
+  email: "em@gd.com",
+  phone: "07075748392",
+  catering_service: "Buy Food",
+  password: "billions"
+};
+
+const caterer2Payload = {
+  name: "Billy Newton",
+  email: "deakueem@gdyeyw.com",
+  phone: "07075748392",
+  catering_service: "Buy Food",
+  password: "billions"
+};
+
+const caterer3Payload = {
+  name: "Billy Newton",
+  email: "de@gdye.com",
+  phone: "07075748392",
+  catering_service: "Buy Food",
+  password: "billions"
+};
+
+before(done => {
+  Caterer.create(catererPayload).then(() => {
+    done();
   });
+});
 
-  describe("POST Meal", () => {
-    it("it should be able to POST a meal into the menu", done => {
-      chai
-        .request(app)
-        .post("/api/v1/meals")
-
-        .end((err, res) => {
-          res.should.have.status(400);
-          res.body.should.have.property("status");
-          done();
-        });
-    });
-    it("should POST a Meal for the day", done => {
-      chai
-        .request(app)
-        .post("/api/v1/meals")
-        .end((err, res) => {
-          res.should.have.status(201);
-          res.body.should.be.a("object");
-          assert.equal(res.body.data.name,);
-          assert.equal(res.body.data.price,);
-          done();
-        });
-    });
+describe("Caterer Get all Meals Endpoint Tests", () => {
+  it(`GET ${API_PREFIX}/meals/ - Fetch All Meals (Unauthorized)`, done => {
+    chai
+      .request(app)
+      .get(`${API_PREFIX}/meals/`)
+      .then(res => {
+        expect(res).to.have.status(401);
+        assert.equal(res.body.status, "error");
+        done();
+      })
+      .catch(err => console.log("GET /meals/", err.message));
   });
-
-  describe("PUT a Meal", () => {
-    it("should EDIT a Meal name", done => {
-      const id = 1;
-      chai
-        .request(app)
-        .put(`/api/v1/meals/${id}`)
-        .send({
-          name: "Meal Name"
-        })
-        .end((err, res) => {
-          res.should.have.status(200);
-          res.body.should.be.a("object");
-          assert.equal(res.body.data.name,);
-          assert.equal(res.body.data.price,);
-          done();
-        });
-    });
-  });
-
-  describe("DELETE Meal", () => {
-    it("should DELETE a Meal", done => {
-      const id = 1;
-      chai
-        .request(app)
-        .delete(`/api/v1/meals/${id}`)
-        .end((err, res) => {
-          res.should.have.status(200);
-          res.body.should.be.a("object");
-          assert.equal(res.body.data.name);
-          assert.equal(res.body.data.price);
-          done();
-        });
-    });
+  it(`GET ${API_PREFIX}/meals/ - Fetch All Meals - (Caterer Authorized)`, done => {
+    Caterer.findOne({ where: { email: catererPayload.email } })
+      .then(caterer => {
+        const { id, name, email, } = caterer;
+        const token = jwt.sign(
+          {
+            caterer: { id, name, email, },
+            isCaterer: true
+          },
+          secret,
+          {
+            expiresIn: 86400
+          }
+        );
+        chai
+          .request(app)
+          .get(`${API_PREFIX}/meals/`)
+          .set("Authorization", `Bearer ${token}`)
+          .then(res => {
+            expect(res).to.have.status(200);
+            assert.equal(res.body.status, "success");
+            done();
+          })
+          .catch(err => console.log("GET /meals/", err.message));
+      })
+      .catch(err => console.log(err.message));
   });
 });

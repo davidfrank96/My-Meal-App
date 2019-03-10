@@ -2,10 +2,10 @@ import chai from "chai";
 import chaiHTTP from "chai-http";
 import jwt from "jsonwebtoken";
 import app from "../app";
-import secret from "../config/jwt_secret";
-import User from "../models/user";
-import Caterer from "../models/caterer";
-import Meal from "../models/meals";
+import secret from "../db/jwt_secret";
+import Users from "../db/models/users";
+import Caterer from "../db/models/caterer";
+import Meal from "../db/models/meals";
 
 const { assert, expect, use } = chai;
 

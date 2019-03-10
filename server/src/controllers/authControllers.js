@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import secret from '../config/jwt_secret';
+import secret from "../db/jwt_secret";
 
 class AuthController {
     static async verifyUserToken(req, res, next) {

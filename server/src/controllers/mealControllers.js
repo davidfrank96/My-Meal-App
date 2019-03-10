@@ -1,5 +1,5 @@
 import fs from "fs";
-import Meal from "../models/meals";
+//import Meal from "../models/meals";
 
 class MealControllers {
   static async getMeal(req, res) {
@@ -35,12 +35,7 @@ class MealControllers {
       return res.status(201).json({
         status: "success",
         message: "Meal Option Added",
-        data: {
-          id: meal.id,
-          name: meal.name,
-          price: meal.price,
-          imageUrl: meal.imageUrl
-        }
+        data: meal
       });
     } catch (err) {
       return res.status(500).json({

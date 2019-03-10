@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
-import User from '../models/user';
-import secret from '../config/jwt_secret';
+//import User from '../models/user';
+import secret from "../db/jwt_secret";
 
 class UserController {
     static async registerUser(req, res) {

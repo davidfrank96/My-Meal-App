@@ -1,7 +1,7 @@
 import chai from 'chai';
 import chaiHTTP from 'chai-http';
 import app from '../app';
-import Caterer from '../models/caterer';
+import Caterer from '../db/models/caterer';
 
 const { assert, expect, use } = chai;
 

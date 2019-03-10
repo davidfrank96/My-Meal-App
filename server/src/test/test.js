@@ -1,4 +1,4 @@
-//import './meal';
+import './meal';
 import './menu';
 //import './order';
 import "./caterer";

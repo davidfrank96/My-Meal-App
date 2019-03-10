@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
-import Caterer from '../models/caterer';
-import secret from '../config/jwt_secret';
+//import Caterer from '../models/caterer';
+import secret from "../db/jwt_secret";
 
 class CatererController {
     static async registerCaterer(req, res) {
