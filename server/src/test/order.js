@@ -1,4 +1,4 @@
-import chai, { expect, assert } from "chai";
+import chai, { expect, assert, use } from "chai";
 import chaiHttp from "chai-http";
 import app from "../app";
 
@@ -49,17 +49,11 @@ describe("Orders", () => {
       chai
         .request(app)
         .post("/api/v1/orders")
-        .send({
-          name: "Fried Rice & chicken",
-          plates: "10",
-          price: "$20"
-        })
         .end((err, res) => {
           res.should.have.status(201);
           res.body.should.be.a("object");
-          assert.equal(res.body.data[0].name, "Fried Rice & chicken");
-          assert.equal(res.body.data[0].price, "$20");
-          assert.equal(res.body.data[0].plates, "10");
+          assert.equal(res.body.data.name,);
+          assert.equal(res.body.data.price,);
           done();
         });
     });
@@ -71,17 +65,11 @@ describe("Orders", () => {
       chai
         .request(app)
         .put(`/api/v1/orders/${id}`)
-        .send({
-          name: "Fried Rice & chicken",
-          plates: "number of plates",
-          prices: "prices"
-        })
         .end((err, res) => {
           res.should.have.status(200);
           res.body.should.be.a("object");
-          assert.equal(res.body.data[0].name, "Fried Rice & chicken");
-          assert.equal(res.body.data[0].price, "$20");
-          assert.equal(res.body.data[0].plates, "10");
+          assert.equal(res.body.data.name,);
+          assert.equal(res.body.data.price,);
           done();
         });
     });
