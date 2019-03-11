@@ -6,8 +6,8 @@ module.exports = (sequelize, DataTypes) => {
     userId: DataTypes.INTEGER
   }, { tableName: "OderItem"});
   OrderItem.associate = (models) => {
-    this.hasMany(models.Meal, {
-      foreignKey: "Meal",
+    this.hasMany(models.Meals, {
+      foreignKey: "Meals",
       constraint: true,
       onDelete: "CASCADE"
     });

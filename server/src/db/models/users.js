@@ -11,6 +11,11 @@ module.exports = (sequelize, DataTypes) => {
       constraint: true,
       onDelete: "CASCADE"
     });
+    this.hasMany(models.Orders, {
+      foreignKey: "Orders",
+      constraint: true,
+      onDelete: "CASCADE"
+    });
   };
   return Users;
 };

@@ -28,7 +28,6 @@ describe('Caterer Auth Signup Endpoint Tests', () => {
                 name: 'Roger Test',
                 email: 'roger@test.com',
                 phone: '08028372825',
-                catering_service: 'Book A Meal'
             })
             .then(res => {
                 expect(res).to.have.status(400);
@@ -45,8 +44,6 @@ describe('Caterer Auth Signup Endpoint Tests', () => {
             .send({
                 name: 'Roger Test',
                 email: 'roger@test.com',
-                phone: '08028372825',
-                catering_service: 'Book A Meal',
                 password: 'password'
             })
             .then(res => {

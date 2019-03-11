@@ -20,6 +20,10 @@ module.exports = {
         type: Sequelize.INTEGER,
         default: null
       },
+      catererId: {
+        type: Sequelize.INTEGER,
+        allowNull: false
+      },
       imageUrl: {
         type: Sequelize.STRING,
         allowNull: false

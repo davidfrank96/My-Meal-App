@@ -1,6 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-    const Meal = sequelize.define('Meal', {
+    const Meal = sequelize.define('Meals', {
         id: {
             type: Sequelize.INTEGER,
             autoIncrement: true,
@@ -35,10 +35,20 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false,
             type: Sequelize.DATE
         }
-    }, { tableName: "Meal" });
+    }, { tableName: "Meals" });
     meal.associate = (models) => {
-        this.hasMany(models.Caterer,  {
-          foreignKey: "catererId",
+        this.hasMany(models.Menu,  {
+          foreignKey: "Menu",
+          constraint: true,
+          onDelete: "CASCADE"
+        });
+        this.hasMany(models.Orders, {
+            foreignKey: "Orders",
+            constraint: true,
+            onDelete: "CASCADE"
+        });
+        this.hasMany(models.CatererId, {
+            foreignKey: "CatererId",
           constraint: true,
           onDelete: "CASCADE"
         });

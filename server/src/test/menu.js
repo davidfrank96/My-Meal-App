@@ -16,35 +16,22 @@ const API_PREFIX = "/api/v1";
 const userPayload = {
   name: "Jon Snow",
   email: "bastard@stark.com",
-  phone: "09019272712",
   password: "winterishere"
 };
 
 const catererPayload = {
   name: "Arya Stark",
   email: "agirl@hasnoface.com",
-  phone: "00000000000",
-  catering_service: "Stark Foods",
   password: "bellish:)"
 };
 
 const caterer2Payload = {
   name: "Arya Stark",
   email: "stark@short.com",
-  phone: "00000000000",
-  catering_service: "Stark Foods",
   password: "bellish:)"
 };
 
-before(done => {
-  User.create(userPayload)
-    .then(() => {
-      return Caterer.create(catererPayload);
-    })
-    .then(() => {
-      done();
-    });
-});
+
 
 describe("User Get all Menus Endpoint Tests", () => {
   it(`GET ${API_PREFIX}/menu/ - Fetch All Menus (Unauthorized)`, done => {

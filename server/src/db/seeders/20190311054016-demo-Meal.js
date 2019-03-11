@@ -1,3 +1,4 @@
+'use strict';
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
@@ -5,9 +6,9 @@ module.exports = {
       "Meals",
       [
         {
-          name: "Fried rice",
-          price: 4000,
-          quantity: 10,
+          name: "Chicken Chops",
+          price: 5000,
+          quantity: 7,
           imageUrl:
             "https://whereismyspoon.co/wp-content/uploads/2018/07/jollof-rice-3.jpg",
           catererId: 2,
@@ -17,8 +18,9 @@ module.exports = {
       ],
       { tableName: "Meals" }
     );
-
   },
+
+  
 
   down: (queryInterface, Sequelize) => {
     return queryInterface.bulkDelete("Meals", null, {});
