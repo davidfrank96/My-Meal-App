@@ -3,21 +3,21 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert(
-      "Menus",
+      "OrderItems",
       [
         {
-          meals:
-            '{"name":" chicken chops" }',
-          catererId: 2,
+          mealId: 2,
+          quantity: 3,
+          userId: 2,
           createdAt: new Date(),
           updatedAt: new Date()
         }
       ],
-      { tableName: "Menus" }
+      { tableName: "OrderItems" }
     );
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.bulkDelete("Menus", null, {});
+    return queryInterface.bulkDelete("OrderItems", null, {});
   }
 };
