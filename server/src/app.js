@@ -9,6 +9,7 @@ import cors from "cors";
 import { config } from "dotenv";
 import router from "./routes/routes";
 import { userInfo } from "os";
+import swaggerDocument from "./swagger.json";
 
 config();
 const app = express();
@@ -23,20 +24,14 @@ app.use(
 );
 
 app.get("/", (req, res) => {
-  res.send("hello World");
+  res.send("Welcome to My Meal App...");
 });
 
 app.use(cors());
 app.use(fileUpload());
 app.use("/api/v1", Routes);
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
-
-//User.hasMany(Order, { constraints: true, onDelete: "CASCADE" });
-//User.hasMany(OrderItem, { constraints: true, onDelete: "CASCADE" });
-//Order.belongsTo(Caterer, { constraints: true, onDelete: "CASCADE" });
-//Meal.belongsTo(Caterer, { constraints: true, onDelete: "CASCADE" });
-//Menu.belongsTo(Caterer, { constraints: true, onDelete: "CASCADE" });
-//OrderItem.belongsTo(Meal, { constraints: true, onDelete: "CASCADE" });
 
 
 const port = process.env.PORT || 8000;
