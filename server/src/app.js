@@ -9,7 +9,7 @@ import cors from "cors";
 import { config } from "dotenv";
 import router from "./routes/routes";
 import { userInfo } from "os";
-import swaggerDocument from "./swagger.json";
+//import swaggerDocument from "./swagger.json";
 
 config();
 const app = express();
@@ -30,7 +30,7 @@ app.get("/", (req, res) => {
 app.use(cors());
 app.use(fileUpload());
 app.use("/api/v1", Routes);
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+//app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 
 
